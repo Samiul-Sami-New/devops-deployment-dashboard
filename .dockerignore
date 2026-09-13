@@ -1,0 +1,22 @@
+# Dependencies are installed inside the image.
+node_modules
+npm-debug.log*
+
+# Local configuration and secrets must never enter the build context.
+.env
+.env.*
+!.env.example
+
+# Source-control and local tooling files are not needed at runtime.
+.git
+.github
+.vscode
+.idea
+
+# Tests and development-only artifacts are excluded from the production image.
+tests
+coverage
+docs
+README.md
+Dockerfile
+docker-compose.yml

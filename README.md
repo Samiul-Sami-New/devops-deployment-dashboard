@@ -24,6 +24,20 @@ npm run dev # run with Node watch mode
 npm test   # run API tests
 ```
 
+## Run with Docker
+
+The Docker setup is production-oriented: it uses a small Node.js LTS image, installs production dependencies only, runs as a non-root user, and includes a container health check.
+
+```bash
+docker compose up --build -d
+docker compose ps
+docker compose down
+```
+
+The local Compose service is available at `http://localhost:3000`. Configure `APP_VERSION`, `ENVIRONMENT`, and `LOG_LEVEL` through your shell or a local `.env` file used by Docker Compose. That file is excluded from the image build context and must not be committed.
+
+The application is attached to an isolated `devops-dashboard-network`, ready for a future Nginx reverse-proxy service.
+
 ## API
 
 - `GET /health` returns a lightweight process health response.

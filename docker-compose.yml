@@ -1,0 +1,27 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: devops-deployment-dashboard:local
+    container_name: devops-deployment-dashboard
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+      APP_VERSION: ${APP_VERSION:-2.0.0-local}
+      ENVIRONMENT: ${ENVIRONMENT:-docker}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+    restart: unless-stopped
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - dashboard-network
+
+networks:
+  dashboard-network:
+    name: devops-dashboard-network
