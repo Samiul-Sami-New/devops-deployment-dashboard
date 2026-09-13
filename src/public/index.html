@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="DevOps Deployment Dashboard application status.">
+    <title>DevOps Deployment Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <body>
+    <main class="dashboard" aria-labelledby="page-title">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">OPERATIONS OVERVIEW</p>
+          <h1 id="page-title">DevOps Deployment Dashboard</h1>
+          <p class="subtitle">Application health and runtime information in one place.</p>
+        </div>
+        <div class="live-indicator"><span></span> Live status</div>
+      </header>
+
+      <section id="status-card" class="status-card" aria-live="polite">
+        <div class="status-heading">
+          <div class="status-dot" id="status-dot"></div>
+          <div>
+            <p class="label">CURRENT STATE</p>
+            <h2 id="application-status">Loading status…</h2>
+          </div>
+        </div>
+        <p id="status-message" class="status-message">Contacting the application API.</p>
+      </section>
+
+      <section class="metrics" aria-label="Application metrics">
+        <article class="metric-card"><p>Environment</p><strong id="environment">—</strong></article>
+        <article class="metric-card"><p>Version</p><strong id="version">—</strong></article>
+        <article class="metric-card"><p>Uptime</p><strong id="uptime">—</strong></article>
+        <article class="metric-card"><p>Last updated</p><strong id="updated">—</strong></article>
+      </section>
+
+      <section class="info-panel">
+        <h2>Deployment readiness</h2>
+        <p>This application is running and reporting its current operational state. Infrastructure and deployment integrations will be added in later phases.</p>
+      </section>
+    </main>
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>

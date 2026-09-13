@@ -1,0 +1,21 @@
+{
+  "name": "devops-deployment-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A lightweight DevOps deployment dashboard.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "supertest": "^7.1.1"
+  }
+}
