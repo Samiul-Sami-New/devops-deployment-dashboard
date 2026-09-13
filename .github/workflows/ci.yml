@@ -48,8 +48,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}:latest
-            ghcr.io/${{ github.repository }}:${{ github.sha }}
+            ghcr.io/samiul-sami-new/devops-deployment-dashboard:latest
+            ghcr.io/samiul-sami-new/devops-deployment-dashboard:${{ github.sha }}
 
       - name: Validate Docker image build
         if: github.event_name == 'pull_request'
