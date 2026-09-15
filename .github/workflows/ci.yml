@@ -51,7 +51,15 @@ jobs:
           tags: |
             ghcr.io/samiul-sami-new/devops-deployment-dashboard:latest
             ghcr.io/samiul-sami-new/devops-deployment-dashboard:${{ github.sha }}
+      - name: Debug GitHub OIDC claims
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          TOKEN=$(curl -sSf \
+            -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=sts.amazonaws.com" \
+            | jq -r '.value')
 
+          echo "$TOKEN" | cut -d. -f2 | base64 -d 2>/dev/null | jq '{aud, sub, repository, ref}'
       - name: Validate Docker image build
         if: github.event_name == 'pull_request'
         run: docker build --tag devops-deployment-dashboard:ci .
