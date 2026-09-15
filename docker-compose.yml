@@ -1,9 +1,6 @@
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: devops-deployment-dashboard:local
+    image: ghcr.io/samiul-sami-new/devops-deployment-dashboard:latest
     container_name: devops-deployment-dashboard
     ports:
       - "8080:3000"
