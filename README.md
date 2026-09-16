@@ -450,7 +450,7 @@ devops-deployment-dashboard/
 ├── src/
 │   └── ...
 │
-├── test/
+├── tests/
 │   └── ...
 │
 ├── .dockerignore
